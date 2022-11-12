@@ -1,5 +1,4 @@
 from Sensor.Sensor_Data_Visualization.database.db import Database
-#from database.db import Database
 from sqlalchemy import Table, Column, String, MetaData
 
 class DBModels():

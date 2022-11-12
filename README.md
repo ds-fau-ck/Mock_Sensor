@@ -1,5 +1,5 @@
 # Mock_Sensor
-#  Step 01- Create a conda environment
+#  Step 01 Create a conda environment
 ```
 conda create --prefix ./env python=3.7 -y
 

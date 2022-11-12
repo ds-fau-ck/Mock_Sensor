@@ -13,5 +13,5 @@ def data_visualizer():
     data_store.plot_sensor_data()
 
 if __name__ == "__main__":
-     #data_recoder()
+    
      data_visualizer()
