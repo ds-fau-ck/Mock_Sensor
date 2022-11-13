@@ -14,3 +14,9 @@ source activate ./env
 pip install -r requirements.txt
 
 ```
+# Step 04 Run the program
+```
+python datarecorder.py 
+python datavisualizer.py 
+
+```
