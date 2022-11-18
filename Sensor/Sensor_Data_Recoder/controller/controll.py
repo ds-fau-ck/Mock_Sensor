@@ -2,7 +2,6 @@ import numpy
 import time
 import keyboard
 from Sensor.Sensor_Data_Recoder.models.model import DBModels
-#from models.model import DBModels
 import matplotlib.pyplot as plt
 import statistics
 import warnings
@@ -26,21 +25,22 @@ class SensorDataController:
             pass
         sensor_data_list = []
         interval = int(input("Please select an interval [1/2/3]: "))
-        print("ENTER DISTRIBUTION: \n1) Normal Distribution. 2) Binomial Distribution.")
-        random_distribution = int(input("Please select a random distribution [1/2]:"))
-        if random_distribution==1:
-            distribution = numpy.random.normal(size=1)
-        elif random_distribution==2:
-            distribution = numpy.random.binomial(n=50, p=0.5, size=1)
-        else:
-            print("[ ERROR ] RANDOM DISTRIBUTION DOES NOT EXIST.")
+        print("ENTER DISTRIBUTION: \n1) Normal Distribution. 2) Binomial Distribution. 3) Poison Distribution")
+        random_distribution = int(input("Please select a random distribution [1/2/3]:"))
         print("Press 'A' to get min value.\nPress 'B' to get max value.")
         print("Press 'C' to get average value.\nPress 'D' to get variance value.")
         print("Press 'E' to get deviation value.\nPress 'F' to get median value.")
         print("[INFO] --- YOU MIGHT NEED TO PRESS KEYS MORE THAN ONCE TO GET THE RESULTS ---")
         while True:
+                    
             current_timestamp = time.time()
             time.sleep(interval)
+            if random_distribution==1:
+                distribution = numpy.random.binomial(n=50, p=0.5, size=1)
+            elif random_distribution==2:
+                distribution = numpy.random.poisson(lam=2, size=1)
+            else:
+                print("[ ERROR ] RANDOM DISTRIBUTION DOES NOT EXIST.")
             self.insert_into_db.insert_data(current_timestamp, distribution[0])
             # CALCULATIONS FOR THE INCOMING DATA
             sensor_data_list.append(int(distribution[0]))
@@ -73,3 +73,4 @@ class SensorDataController:
                 print("deviation:", final_data["deviation"])
             elif keyboard.is_pressed('f'):
                 print("median:", final_data["median"])
+
