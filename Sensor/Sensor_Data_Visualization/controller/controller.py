@@ -29,9 +29,10 @@ class SensorDataFetchController:
         Method to plot sensor data diagram
         '''
         sensor_data_list, timestamp_list = [], []
-        choose_plot = int(input("1) LINE PLOT. 2) SCATTER PLOT. 3) HISTOGRAM PLOT\nPlease select a plot for sensor data [1/2/3]: "))
-        choose_calculation_plot = int(input("1) BAR PLOT. 2) PIE PLOT.\nPlease select a plot for calculations [1/2]: "))
+        choose_plot = int(input("1) LINE PLOT. 2) SCATTER PLOT. 3) HISTOGRAM PLOT\nPlease select a plot for incoming sensor data [1/2/3]: "))
+        choose_calculation_plot = int(input("1) BAR PLOT. 2) PIE PLOT.\nPlease select a plot for calculations of Min, Max,Avg,Variance, Std and Median [1/2]: "))
         print("\nDATABASE ACCESS OPTIONS:\nPress 'a' to fetch all records.\nPress 'f' to fetch first record.\nPress 'l' to fetch last record.")
+        print("\nPlease press q(probably several times) to quit the Plot.")
         while True:
             if keyboard.is_pressed('q'):
                 break
